@@ -136,7 +136,7 @@
   }
 
   .vertical-label-container {
-    display: none; /* Hide vertical text on mobile */
+    display: none; 
   }
 
   .reset-hint {

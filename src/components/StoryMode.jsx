@@ -3,6 +3,7 @@ import './StoryMode.css';
 import ScrambleText from './ScrambleText';
 import ContactSection from './ContactSection';
 import Footer from './Footer';
+import StatsSection from './StatsSection';
 import { Github, Linkedin, Twitter, Globe, Boxes, MessageSquare, Database, Cpu, Code2, Gamepad2 } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Hero3DModel } from './Hero3DModels';
@@ -160,14 +161,14 @@ const StoryMode = ({ profile, globalData }) => {
                   </div>
                   <div className="project-links">
                     {proj.links?.github && (
-                      <a href={proj.links.github} target="_blank" rel="noreferrer" className="hud-btn" onClick={e => e.stopPropagation()}>
-                        <Github size={18} />
-                      </a>
+                       <a href={proj.links.github} target="_blank" rel="noreferrer" className="hud-btn" onClick={e => e.stopPropagation()}>
+                         <Github size={18} />
+                       </a>
                     )}
                     {proj.links?.live && (
-                      <a href={proj.links.live} target="_blank" rel="noreferrer" className="hud-btn" onClick={e => e.stopPropagation()}>
-                        <Globe size={18} />
-                      </a>
+                       <a href={proj.links.live} target="_blank" rel="noreferrer" className="hud-btn" onClick={e => e.stopPropagation()}>
+                         <Globe size={18} />
+                       </a>
                     )}
                   </div>
                 </div>
@@ -175,6 +176,9 @@ const StoryMode = ({ profile, globalData }) => {
             ))}
           </div>
         </section>
+
+        {/* V14 Live Developer Stats */}
+        <StatsSection />
 
         <section className="skills-section chapter">
           <h3 className="mono chapter-title">[ SYSTEM_HUD: TECHNICAL ROSTER ]</h3>
