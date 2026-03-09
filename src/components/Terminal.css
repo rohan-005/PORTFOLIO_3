@@ -1,0 +1,190 @@
+.terminal-window {
+  background-color: #121526; /* Dark navy specific to terminal */
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: #15192B;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mac-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.mac-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.mac-btn.close { background-color: #FF5F56; }
+.mac-btn.min { background-color: #FFBD2E; }
+.mac-btn.max { background-color: #27C93F; }
+
+.terminal-title {
+  color: #858B9C;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.terminal-badges {
+  display: flex;
+  gap: 10px;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  background-color: #1C2237;
+  color: #858B9C;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.badge.active {
+  color: #27C93F;
+  background-color: rgba(39, 201, 63, 0.1);
+}
+
+.pulse-dot-small {
+  width: 6px;
+  height: 6px;
+  background-color: #27C93F;
+  border-radius: 50%;
+  animation: pulse-small 2s infinite;
+}
+
+@keyframes pulse-small {
+  0% { box-shadow: 0 0 0 0 rgba(39, 201, 63, 0.7); }
+  70% { box-shadow: 0 0 0 5px rgba(39, 201, 63, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(39, 201, 63, 0); }
+}
+
+.terminal-body {
+  padding: 2rem;
+  color: #E2E8F0;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.welcome-box {
+  padding: 1rem;
+  background-color: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  margin-bottom: 2rem;
+  color: #858B9C;
+}
+
+.text-green { color: #00FFCC; }
+.text-yellow { color: #FFD700; }
+.text-muted { color: #858B9C; }
+
+.command-lines p blockquote, .command-lines p span {
+  color: #00FFCC;
+  margin-right: 10px;
+}
+.command-lines {
+  margin-bottom: 2rem;
+}
+
+.prompt-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem;
+  background-color: rgba(255,255,255,0.03);
+  border-radius: 6px;
+  margin-bottom: 2rem;
+}
+
+.cursor-block {
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  background-color: #00FFCC;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.available-commands-section {
+  margin-bottom: 2rem;
+}
+
+.cmd-grid {
+  display: flex;
+  gap: 15px;
+  margin-top: 1rem;
+}
+
+.cmd-btn {
+  padding: 8px 15px;
+  background-color: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #E2E8F0;
+}
+.cmd-btn span {
+  color: #00FFCC;
+}
+
+.system-stats {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+}
+
+.stat-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.dot.green { background-color: #27C93F; }
+.dot.purple { background-color: #B266FF; }
+.dot.yellow { background-color: #FFBD2E; }
+.dot.red { background-color: #FF5F56; }
+
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.term-input {
+  background: transparent;
+  border: none;
+  color: #E2E8F0;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+}
+.term-input::placeholder {
+  color: #5C6370;
+}

@@ -1,0 +1,431 @@
+{
+  "person": {
+    "name": "Rohan",
+    "tagline": "Building immersive worlds and robust applications",
+    "location": "India",
+    "email": "rohandhanerwal@gmail.com",
+    "social": {
+      "github": "https://github.com/rohan-005",
+      "linkedin": "https://www.linkedin.com/in/rohan005/",
+      "twitter": "https://x.com/itsrohan005",
+      "website": "https://workwithrohan.vercel.app/",
+      "unity": "https://play.unity.com/en/user/37417cba-6186-4c44-a28d-699258161de6",
+      "discord": "https://discord.com/users/_rohan005"
+    }
+  },
+  "theme": {
+    "accent": "royal-blue",
+    "allowRetroEffects": true
+  },
+  "profiles": {
+    "gameDeveloper": {
+      "id": "game",
+      "label": "Game Developer",
+      "hero": {
+        "title": "Crafting Interactive Stories",
+        "subtitle": "Unity Developer specializing in Narrative Game Design",
+        "typingRoles": [
+          "Unity Developer",
+          "Game Designer",
+          "Interactive Storyteller",
+          "3D Generalist",
+          "Level Designer",
+          "Gameplay Programmer",
+          "Network Programmer"
+        ]
+      },
+      "about": "I am a Unity Developer and final-year Computer Science student focused on building immersive, story-driven games. My work bridges the technical and the creative—whether designing intricate 2D puzzle mechanics or developing systems for 3D multiplayer worlds. I believe that innovative gameplay is the key to powerful interactive storytelling, and I am dedicated to crafting unique player experiences that linger long after the game is over.",
+      "experience": [],
+      "projects": [
+        {
+          "id": "timber-curse",
+          "title": "The Timber Curse",
+          "shortDescription": "First-person 3D horror adventure with time-curse mechanics",
+          "longDescription": "A first-person 3D horror adventure game set inside a cursed timber forest trapped in a broken timeline. The player must locate and destroy cursed relics in an eternal fire to break the time loop and escape. Guided by a mysterious cursed spirit, the game combines environmental storytelling, atmospheric lighting, immersive sound design, and psychological tension to create a deeply unsettling experience.",
+          "tech": [
+            "Unity",
+            "C#",
+            "Blender",
+            "Cinemachine",
+            "Post Processing"
+          ],
+          "media": {
+            "cover": "/assets/games/timbercurse.png",
+            "gallery": []
+          },
+          "links": {
+            "github": "https://play.unity.com/en/games/476dc65e-efc9-4879-8a21-17551fc0ba72/the-timber-curse",
+            "live": "https://the-timber-curse.vercel.app/",
+            "video": "https://youtube.com/watch?v=lens-of-memories"
+          },
+          "files": {
+            "build": "/builds/timber-curse.zip",
+            "repoPath": "/games/timber-curse"
+          }
+        },
+        {
+          "id": "neo-gaming-hub",
+          "title": "Neo Gaming Hub",
+          "shortDescription": "3D modular gaming hub connecting multiple mini-games",
+          "longDescription": "Designed and developed a 3D modular Gaming Hub in Unity, featuring interactive rooms that act as entry portals to multiple mini-games within a unified environment. Built an expandable architecture allowing seamless integration of future games, modular room additions, and scalable scene management. Implemented smooth third-person player movement, interactive UI-based transitions, and structured hub navigation for an immersive arcade-style experience.",
+          "tech": [
+            "Unity",
+            "C#",
+            "Unity Scene Management",
+            "UI Toolkit"
+          ],
+          "media": {
+            "cover": "/assets/games/gaming-hub.png",
+            "gallery": []
+          },
+          "links": {
+            "github": "https://play.unity.com/en/games/984e7c01-2eb4-49b8-855f-2f534d72beee/gaminghub",
+            "live": "https://play.unity.com/en/games/984e7c01-2eb4-49b8-855f-2f534d72beee/gaminghub",
+            "video": ""
+          },
+          "files": {
+            "build": "/builds/neo-gaming-hub.zip",
+            "repoPath": "/games/neo-gaming-hub"
+          }
+        },
+        {
+          "id": "heist-sprint",
+          "title": "The Heist Sprint",
+          "shortDescription": "Fast-paced reflex-based vault escape mini-game",
+          "longDescription": "“The Heist Sprint” is a high-intensity reflex-based mini-game set inside a high-security vault. Players must dodge lasers, avoid traps, and outmaneuver guards while escaping with stolen assets. Implemented smooth character controls, procedural obstacle spawning, increasing difficulty scaling, and dynamic hazard timing to enhance replayability and player engagement.",
+          "tech": [
+            "Unity",
+            "C#",
+            "Physics System",
+            "Animation Controller"
+          ],
+          "media": {
+            "cover": "/assets/games/hiest-sprint.png",
+            "gallery": []
+          },
+          "links": {
+            "github": "https://play.unity.com/en/games/d5426e84-2e49-4474-ba28-f1f419591f0c/webglbuild",
+            "live": "https://hiestsprintweb.vercel.app/",
+            "video": ""
+          },
+          "files": {
+            "build": "/builds/heist-sprint.zip",
+            "repoPath": "/games/heist-sprint"
+          }
+        },
+        {
+          "id": "mission-spikes",
+          "title": "Mission Spikes",
+          "shortDescription": "Precision-based survival platformer with dynamic traps",
+          "longDescription": "Mission Spikes is a fast-paced precision survival platformer where players navigate hazardous terrains filled with moving spikes, collapsing platforms, and timed traps. Developed responsive jump mechanics, collision detection systems, and progressive difficulty curves to challenge reaction timing and platforming accuracy. Focused on tight gameplay feel and consistent feedback systems.",
+          "tech": [
+            "Unity",
+            "C#",
+            "2D Physics",
+            "Tilemap System"
+          ],
+          "media": {
+            "cover": "/assets/games/unity.png",
+            "gallery": []
+          },
+          "links": {
+            "github": "https://play.unity.com/en/games/890d0e02-f76b-46ee-a4b3-05d2a5bcdf6d/mission-spikes",
+            "live": "https://play.unity.com/en/games/890d0e02-f76b-46ee-a4b3-05d2a5bcdf6d/mission-spikes",
+            "video": ""
+          },
+          "files": {
+            "build": "/builds/mission-spikes.zip",
+            "repoPath": "/games/mission-spikes"
+          }
+        },
+        {
+          "id": "mario-run",
+          "title": "Mario Run",
+          "shortDescription": "Side-scrolling endless runner with dynamic track system",
+          "longDescription": "Mario Run is a side-scrolling endless runner built around a looped terrain track system where traps, spikes, and collectibles dynamically spawn only on the designated walkable base layer. Implemented procedural obstacle generation, collision-based scoring, and responsive player controls. Designed the terrain system to ensure all interactive elements align strictly with the playable path for consistent gameplay flow.",
+          "tech": [
+            "Unity",
+            "C#",
+            "2D Platformer Mechanics",
+            "Prefab System"
+          ],
+          "media": {
+            "cover": "/assets/games/mario-run.png",
+            "gallery": []
+          },
+          "links": {
+            "github": "https://play.unity.com/en/games/4f90635b-b7f3-428f-ba16-88d81bd28919/mariorun-webgl",
+            "live": "https://play.unity.com/en/games/4f90635b-b7f3-428f-ba16-88d81bd28919/mariorun-webgl",
+            "video": ""
+          },
+          "files": {
+            "build": "/builds/mario-run.zip",
+            "repoPath": "/games/mario-run"
+          }
+        }
+      ],
+      "skills": {
+        "core": [
+          "Game Design",
+          "Level Design",
+          "Gameplay Programming",
+          "UI/UX for Games"
+        ],
+        "tools": [
+          "Unity",
+          "C#",
+          "Visual Studio",
+          "Blender",
+          "Aseprite"
+        ],
+        "engines": [
+          "Unity 3D",
+          "Unity 2D",
+          "WebGL"
+        ]
+      },
+      "cvFile": "/cv/gamedeveloper-1.pdf"
+    },
+    "fullStackDeveloper": {
+      "id": "fullstack",
+      "label": "Full-Stack Developer",
+      "hero": {
+        "title": "Building Scalable Digital Products",
+        "subtitle": "MERN Stack | Next.js | System Design",
+        "typingRoles": [
+          "React Developer",
+          "Next.js Engineer",
+          "Backend Developer",
+          "System Designer",
+          "API Architect"
+        ]
+      },
+      "about": "I'm a final-year Computer Science student passionate about building scalable and production-ready web applications. I specialize in modern JavaScript ecosystems including MERN and Next.js. From interactive learning platforms to e-commerce systems and creator marketplaces, I focus on clean architecture, optimized backend logic, and seamless user experience.",
+      "experience": [
+        {
+          "company": "DSA Forge",
+          "role": "Full-Stack Developer",
+          "period": "Jan 2026 – Present",
+          "description": [
+            "Designed and developed DSA Forge, a structured problem-solving and algorithm practice platform.",
+            "Implemented custom evaluation workflows and submission handling systems for programming problems.",
+            "Designed scalable database models for problem categorization, topic-wise mapping, and difficulty indexing.",
+            "Collaborated on frontend architecture enabling dynamic problem rendering and interactive practice sessions."
+          ],
+          "tech": [
+            "React",
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "Tailwind"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "id": "dsaforge",
+          "title": "DSA Forge",
+          "shortDescription": "Structured algorithm and problem-solving platform",
+          "longDescription": "A structured problem-solving platform focused on Data Structures and Algorithms. Features categorized problem sets, submission handling, scalable database design, and interactive frontend rendering for seamless coding practice.",
+          "tech": [
+            "React",
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "Tailwind"
+          ],
+          "media": {
+            "cover": "/assets/web/dsaforge.png",
+            "gallery": []
+          },
+          "links": {
+            "github": "https://github.com/rohan-005/dsa-forge",
+            "live": "www.dsa-forge.com",
+            "video": ""
+          }
+        },
+        {
+          "id": "byte-code",
+          "title": "Byte-Code",
+          "shortDescription": "Full-stack interactive coding and learning platform",
+          "longDescription": "Developed 'Byte-Code', a MERN-based interactive learning platform supporting multiple programming languages. Implemented live code execution, gamified XP-based progression system, authentication workflows, dynamic pagination, and structured content storage for scalable course management.",
+          "tech": [
+            "React",
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "JavaScript",
+            "Tailwind"
+          ],
+          "media": {
+            "cover": "/assets/web/bytecode.png",
+            "gallery": []
+          },
+          "links": {
+            "github": "https://github.com/rohan-005/bytecode_mern",
+            "live": "https://bytecode.vercel.app/",
+            "video": ""
+          }
+        },
+        {
+          "id": "algonerd",
+          "title": "AlgoNerd",
+          "shortDescription": "Gamified competitive programming and DSA practice platform",
+          "longDescription": "AlgoNerd is a full-stack problem-solving and competitive programming platform designed to make Data Structures and Algorithms practice engaging and structured. Built with scalable backend architecture, it supports categorized problem sets, difficulty-based progression, real-time submission handling, and leaderboard-based gamification. Implemented secure authentication, optimized database indexing for fast problem retrieval, and dynamic UI rendering for seamless coding workflows. Designed to provide structured learning paths while maintaining competitive engagement through ranking systems and performance analytics.",
+          "tech": [
+            "React",
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "Tailwind",
+            "JWT"
+          ],
+          "media": {
+            "cover": "/assets/web/algonerd.png",
+            "gallery": []
+          },
+          "links": {
+            "github": "https://github.com/rohan-005/algoNERD",
+            "live": "https://algo-nerd.vercel.app/",
+            "video": ""
+          }
+        },
+        {
+          "id": "timber-curse-web",
+          "title": "Timber Curse Website",
+          "shortDescription": "Showcase website for 3D horror Unity game",
+          "longDescription": "Built a modern showcase website for the 3D horror game 'The Timber Curse'. Developed using Next.js with optimized routing, performance enhancements, and structured game media presentation.",
+          "tech": [
+            "Next.js",
+            "Unity",
+            "TypeScript",
+            "Tailwind"
+          ],
+          "media": {
+            "cover": "/assets/web/timbercurse.png",
+            "gallery": []
+          },
+          "links": {
+            "github": "https://github.com/rohan-005/the_timber_curse",
+            "live": "https://the-timber-curse.vercel.app/",
+            "video": ""
+          }
+        },
+        {
+          "id": "renzaar",
+          "title": "Renzaar",
+          "shortDescription": "Marketplace for gaming assets and 3D models",
+          "longDescription": "Built 'Renzaar', a full-stack marketplace for creators to upload, showcase, and sell gaming assets including 3D models and textures. Implemented secure authentication, asset management workflows, real-time updates, and scalable backend storage.",
+          "tech": [
+            "Next.js",
+            "ThreeJS",
+            "TypeScript",
+            "Tailwind",
+            "Firebase",
+            "MongoDB"
+          ],
+          "media": {
+            "cover": "/assets/web/renzaar.png",
+            "gallery": []
+          },
+          "links": {
+            "github": "https://github.com/rohan-005/renzaar",
+            "live": "https://renzaar.vercel.app/",
+            "video": ""
+          }
+        },
+        {
+          "id": "stikbit",
+          "title": "StikBit",
+          "shortDescription": "Full-stack sticker e-commerce platform",
+          "longDescription": "Developed StikBit, a responsive e-commerce platform for custom stickers. Implemented product management, dynamic cart functionality, RESTful API integration, and optimized backend queries for efficient product loading and order processing.",
+          "tech": [
+            "React",
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "JavaScript",
+            "Tailwind"
+          ],
+          "media": {
+            "cover": "/assets/web/stikbit.png",
+            "gallery": []
+          },
+          "links": {
+            "github": "https://github.com/rohan-005/stikbit",
+            "live": "stikbit.vercel.app",
+            "video": ""
+          }
+        },
+        {
+          "id": "heist-sprint-website",
+          "title": "Heist Sprint Website",
+          "shortDescription": "Custom promotional website for reflex-based game",
+          "longDescription": "Built a high-performance React website for 'Heist Sprint' using Vite and TailwindCSS. Focused on smooth animations, optimized loading, and modern UI design to complement the fast-paced theme of the game.",
+          "tech": [
+            "React",
+            "JavaScript",
+            "Tailwind"
+          ],
+          "media": {
+            "cover": "/assets/web/hiest-sprint.png",
+            "gallery": []
+          },
+          "links": {
+            "github": "https://github.com/rohan-005/hiestsprintweb",
+            "live": "stsprintweb.vercel.app",
+            "video": ""
+          }
+        },
+        {
+          "id": "bid-for-it",
+          "title": "Bid For It",
+          "shortDescription": "Freelancer bidding platform",
+          "longDescription": "Developed a full-stack project bidding platform where clients post projects and freelancers submit competitive bids. Built with a responsive frontend and secure PHP backend featuring authentication, bid management, and real-time status tracking.",
+          "tech": [
+            "HTML",
+            "CSS",
+            "PHP",
+            "SQL",
+            "JavaScript",
+            "Tailwind"
+          ],
+          "media": {
+            "cover": "/assets/web/mock.jpg",
+            "gallery": []
+          },
+          "links": {
+            "github": "https://github.com/rohan-005/bid_for_it",
+            "live": "https://github.com/rohan-005/bid_for_it",
+            "video": ""
+          }
+        }
+      ],
+      "skills": {
+        "frontend": [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS"
+        ],
+        "backend": [
+          "Node.js",
+          "Express",
+          "PHP",
+          "REST APIs"
+        ],
+        "databases": [
+          "MongoDB",
+          "MySQL",
+          "Firebase"
+        ],
+        "devops": [
+          "Git",
+          "Vercel",
+          "Netlify"
+        ]
+      },
+      "cvFile": "/cv/rohan.pdf"
+    }
+  }
+}

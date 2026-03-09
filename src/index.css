@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Teko:wght@500;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  /* DARK MODE (V8 Green Overhaul) */
+  --bg-color: #0A0F0D; /* Deep dark background for contrast */
+  --accent-color: #84B179; /* Primary Accent */
+  --accent-light: #A2CB8B; 
+  --text-primary: #E8F5BD; /* Brightest green for main text */
+  --text-secondary: #C7EABB; /* Mid-green for secondary text */
+  --secondary-color: #1a221f;
+  --hud-bg: rgba(10, 15, 13, 0.85);
+  --hud-cell-bg: rgba(132, 177, 121, 0.05); /* Tint of accent */
+  --panel-gradient-start: #111a15;
+  --glitch-text-gradient: linear-gradient(135deg, #E8F5BD, #A2CB8B);
+  --parallax-gradient: radial-gradient(ellipse at top center, #1a221f, var(--bg-color) 70%);
+  
+  --font-sans: 'Oswald', sans-serif;
+  --font-heading: 'Teko', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+:root.light-mode {
+  /* LIGHT MODE (V12 Dirty White & Red) */
+  --bg-color: #7c7c78; /* Dirty white / paper tone */
+  --accent-color: #910808; /* Racing Red */
+  --text-primary: #ffffff; /* Near black for stark contrast */
+  --text-secondary: #000000; /* Dark gray */
+  --secondary-color: #d1d1cc; /* Darker dirty white for borders */
+  --hud-bg: rgba(244, 244, 240, 0.85);
+  --hud-cell-bg: rgba(230, 0, 0, 0.05); /* Tint of red */
+  --panel-gradient-start: #eaeaea;
+  --glitch-text-gradient: linear-gradient(135deg, #111111, #E60000);
+  --parallax-gradient: radial-gradient(ellipse at top center, #e8e8e3, var(--bg-color) 70%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: 
+    repeating-linear-gradient(
+      -45deg,
+      rgba(132, 177, 121, 0.15),
+      rgba(132, 177, 121, 0.15) 2px,
+      transparent 2px,
+      transparent 12px
+    );
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+h1 i, h2 i, h3 i, h4 i, h5 i, h6 i, em {
+  font-style: italic;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--text-primary);
+}
+
+button {
+  font-family: var(--font-mono);
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}

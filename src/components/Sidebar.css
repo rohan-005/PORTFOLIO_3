@@ -1,0 +1,149 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  background-color: var(--secondary-color);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: width 0.3s ease, background-color 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.8);
+}
+
+.sidebar:hover {
+  width: 80px;
+  background-color: #3f3f45; /* Lighter variant for hover */
+}
+
+/* Position based on what was selected in SplitScreen logic. 
+   If game developer was selected (left side expands), the right side (Full-Stack) 
+   shrinks into the right sidebar. 
+   Actually, let's just make it always on the LEFT or RIGHT based on preference.
+   Wait, the prompt says "The Pivot: The selected side expands while the other side folds back into the Z-axis and settles as a slim, Interactive Sidebar on the edge."
+*/
+.app-container > .sidebar {
+  /* Default positioning, we can override if needed based on state, but let's stick to a left sidebar for simplicity across both, or dynamic based on `activeProfile` */
+  left: 0; 
+}
+
+/* But let's add dynamic positioning if we want */
+.app-container:has(.story-mode-game) .sidebar {
+  right: 0;
+  left: auto;
+  border-left: 2px solid var(--accent-color);
+}
+
+.app-container:has(.story-mode-fullstack) .sidebar {
+  left: 0;
+  right: auto;
+  border-right: 2px solid var(--accent-color);
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar:hover .sidebar-content {
+  opacity: 1;
+}
+
+.return-icon {
+  color: var(--accent-color);
+}
+
+.reset-hint {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  margin-top: 10px;
+}
+
+.vertical-label-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-size: 1.5rem;
+  white-space: nowrap;
+  letter-spacing: 4px;
+  color: #888;
+}
+
+.sidebar:hover .vertical-text {
+  color: var(--text-primary);
+}
+
+.sidebar-edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--accent-color);
+}
+
+.edge-left {
+  right: 0;
+}
+
+.edge-right {
+  left: 0;
+}
+
+/* V13 Mobile Responsiveness constraints for Sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+    top: auto;
+    bottom: 0;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 60px;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 1rem;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: 2px solid var(--accent-color);
+  }
+
+  .sidebar:hover {
+    width: 100% !important;
+    height: 80px;
+  }
+
+  .sidebar-content {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .vertical-label-container {
+    display: none; /* Hide vertical text on mobile */
+  }
+
+  .reset-hint {
+    display: none;
+  }
+
+  .sidebar-edge {
+    display: none;
+  }
+}

@@ -1,0 +1,49 @@
+.app-container {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  overflow: clip;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: var(--secondary-color);
+  color: var(--text-primary);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+.transitioning::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: var(--accent-color);
+  z-index: 9998;
+  animation: wipeInOut 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+@keyframes wipeInOut {
+  0% { transform: scaleX(0); transform-origin: left; }
+  45% { transform: scaleX(1); transform-origin: left; }
+  55% { transform: scaleX(1); transform-origin: right; }
+  100% { transform: scaleX(0); transform-origin: right; }
+}
