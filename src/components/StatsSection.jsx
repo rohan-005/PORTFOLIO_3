@@ -6,71 +6,100 @@ const StatsSection = () => {
   const [githubData, setGithubData] = useState(null);
   const [leetcodeData, setLeetcodeData] = useState(null);
   const [hackerrankData, setHackerrankData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [githubLoading, setGithubLoading] = useState(true);
+  const [leetcodeLoading, setLeetcodeLoading] = useState(true);
+  const [hackerrankLoading, setHackerrankLoading] = useState(true);
 
+  // GITHUB FETCH
   useEffect(() => {
-    const fetchStats = async () => {
+    const fetchGithub = async () => {
       try {
-        setLoading(true);
-        // Fetch Github (rohan-005)
-        try {
-          // GitHub rate-limits allorigins IPs heavily, so we use direct fetch. It may rate-limit the local IP, but works flawlessly when authenticated.
-          const ghResponse = await fetch('https://api.github.com/users/rohan-005');
-          const ghJson = await ghResponse.json();
-          if (ghJson.message && ghJson.message.includes("API rate limit")) {
-             setGithubData({ public_repos: 'LIMIT', followers: 'LIMIT' });
-          } else if (ghResponse.ok) {
-             setGithubData(ghJson);
-          }
-        } catch (e) {
-          console.error("Github fetch error", e);
+        const res = await fetch('https://api.github.com/users/rohan-005');
+        if (res.status === 403 || res.status === 429) {
+           setGithubData({ public_repos: 'LIMIT', followers: 'LIMIT' });
+        } else if (res.ok) {
+           const json = await res.json();
+           setGithubData(json);
+        } else {
+           setGithubData({ public_repos: 'ERR', followers: 'ERR' });
         }
-        
-        // Fetch Leetcode (frosthowl_005) - Fetch both profile (for rank) and solved metrics
-        try {
-          const lcProfileRes = await fetch('https://alfa-leetcode-api.onrender.com/frosthowl_005');
-          const lcProfile = await lcProfileRes.json();
-          
-          const lcSolvedRes = await fetch('https://alfa-leetcode-api.onrender.com/frosthowl_005/solved');
-          const lcSolved = await lcSolvedRes.json();
-
-          const lcBadgesRes = await fetch('https://alfa-leetcode-api.onrender.com/frosthowl_005/badges');
-          const lcBadges = await lcBadgesRes.json();
-
-          if (lcProfileRes.ok && lcSolvedRes.ok) {
-            setLeetcodeData({ 
-               ...lcProfile, 
-               solvedProblem: lcSolved.solvedProblem,
-               badges: lcBadges.badges || []
-            });
-          }
-        } catch (e) {
-          console.error("Leetcode fetch error", e);
-        }
-
-        // Fetch HackerRank (rohandhanerwal) Badges array via CORS proxy
-        try {
-          const hrResponse = await fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent('https://www.hackerrank.com/rest/hackers/rohandhanerwal/badges'));
-          const hrJson = await hrResponse.json();
-          if (hrResponse.ok && hrJson.models) {
-            setHackerrankData({ 
-              badges: hrJson.models
-            });
-          }
-        } catch (e) {
-          console.error("HackerRank fetch error", e);
-        }
-
-      } catch (err) {
-        console.error("Failed to fetch dev stats:", err);
-        setError(true);
+      } catch (e) {
+        console.error("Github fetch error", e);
       } finally {
-        setLoading(false);
+        setGithubLoading(false);
       }
     };
+    fetchGithub();
+  }, []);
 
-    fetchStats();
+  // LEETCODE FETCH
+  useEffect(() => {
+    const fetchLeetcode = async () => {
+      // AbortController for 5 second timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000);
+      try {
+        const fetchConfig = { signal: controller.signal };
+        const lcProfileRes = await fetch('https://alfa-leetcode-api.onrender.com/frosthowl_005', fetchConfig);
+        const lcSolvedRes = await fetch('https://alfa-leetcode-api.onrender.com/frosthowl_005/solved', fetchConfig);
+        const lcBadgesRes = await fetch('https://alfa-leetcode-api.onrender.com/frosthowl_005/badges', fetchConfig);
+
+        // If rate limited by the proxy, show limit UI gracefully instead of dead component
+        if (lcProfileRes.status === 429 || lcSolvedRes.status === 429) {
+           setLeetcodeData({ 
+              solvedProblem: 'LIMIT',
+              ranking: 'LIMIT',
+              badges: []
+           });
+           return;
+        }
+
+        // Safely verify JSON to avoid parsing HTML 502 proxy errors (SyntaxError: Unexpected token < or U)
+        if (lcProfileRes.ok && lcSolvedRes.ok && lcProfileRes.headers.get("content-type")?.includes("application/json")) {
+          const lcProfile = await lcProfileRes.json();
+          const lcSolved = await lcSolvedRes.json();
+          const lcBadges = await lcBadgesRes.json();
+
+          setLeetcodeData({ 
+             ...lcProfile, 
+             solvedProblem: lcSolved.solvedProblem,
+             badges: lcBadges.badges || []
+          });
+        }
+      } catch (e) {
+        console.error("Leetcode fetch error safely caught", e);
+      } finally {
+        clearTimeout(timeoutId);
+        setLeetcodeLoading(false);
+      }
+    };
+    fetchLeetcode();
+  }, []);
+
+  // HACKERRANK FETCH
+  useEffect(() => {
+    const fetchHackerrank = async () => {
+      try {
+        // use corsproxy.io as a reliable fallback for allorigins block
+        const hrResponse = await fetch('https://corsproxy.io/?' + encodeURIComponent('https://www.hackerrank.com/rest/hackers/rohandhanerwal/badges'));
+        if (hrResponse.status === 429) {
+           setHackerrankData({ badges: [{ badge_name: 'RATE_LIMIT', stars: 0 }] });
+           return;
+        }
+
+        if (hrResponse.ok && hrResponse.headers.get("content-type")?.includes("application/json")) {
+           const hrJson = await hrResponse.json();
+           if (hrJson.models) {
+             setHackerrankData({ badges: hrJson.models });
+           }
+        }
+      } catch (e) {
+        console.error("HackerRank fetch error", e);
+      } finally {
+        setHackerrankLoading(false);
+      }
+    };
+    fetchHackerrank();
   }, []);
 
   return (
@@ -86,7 +115,7 @@ const StatsSection = () => {
           </div>
           
           <div className="stat-card-body">
-            {loading ? (
+            {githubLoading ? (
               <div className="loading-pulse mono">AWAITING_DATA...</div>
             ) : !githubData ? (
               <div className="error-text mono"><AlertTriangle size={16}/> SYNC_FAILED</div>
@@ -113,7 +142,7 @@ const StatsSection = () => {
           </div>
           
           <div className="stat-card-body">
-            {loading ? (
+            {leetcodeLoading ? (
               <div className="loading-pulse mono">AWAITING_DATA...</div>
             ) : !leetcodeData ? (
               <div className="error-text mono"><AlertTriangle size={16}/> SYNC_FAILED</div>
@@ -159,7 +188,7 @@ const StatsSection = () => {
           </div>
           
           <div className="stat-card-body">
-            {loading ? (
+            {hackerrankLoading ? (
               <div className="loading-pulse mono">AWAITING_DATA...</div>
             ) : !hackerrankData ? (
               <div className="error-text mono"><AlertTriangle size={16}/> SYNC_FAILED</div>

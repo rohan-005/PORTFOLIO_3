@@ -73,6 +73,7 @@ function App() {
           <StoryMode 
             profile={activeProfile === 'game' ? portfolioData.profiles.gameDeveloper : portfolioData.profiles.fullStackDeveloper}
             globalData={portfolioData}
+            isTransitioning={isTransitioning}
           />
         </>
       ) : (

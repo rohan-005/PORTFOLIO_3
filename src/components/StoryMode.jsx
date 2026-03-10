@@ -4,14 +4,25 @@ import ScrambleText from './ScrambleText';
 import ContactSection from './ContactSection';
 import Footer from './Footer';
 import StatsSection from './StatsSection';
-import { Github, Linkedin, Twitter, Globe, Boxes, MessageSquare, Database, Cpu, Code2, Gamepad2 } from 'lucide-react';
+import { Github, Linkedin, Twitter, Globe, Boxes, MessageSquare, Database, Cpu, Code2, Gamepad2,BotMessageSquare } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Hero3DModel } from './Hero3DModels';
 
-const StoryMode = ({ profile, globalData }) => {
+const StoryMode = ({ profile, globalData, isTransitioning }) => {
   const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [hoveredProject, setHoveredProject] = useState(null);
+  
+  // Guard the massive WebGL payload. Render fallback to maintain layout bounds.
+  // This physically prevents 3D shader compilation from executing on the same
+  // frames as the intense 1.2s CSS transition rip phase.
+  const [render3D, setRender3D] = useState(false);
+
+  useEffect(() => {
+    if (!isTransitioning) {
+      setRender3D(true);
+    }
+  }, [isTransitioning]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -94,18 +105,18 @@ const StoryMode = ({ profile, globalData }) => {
                 </a>
                 
                 <div className="hero-social-links">
-                   <a href={globalData.person.social.github} target="_blank" rel="noreferrer" className="social-icon-btn"><Github size={24} /></a>
-                   <a href={globalData.person.social.linkedin} target="_blank" rel="noreferrer" className="social-icon-btn"><Linkedin size={24} /></a>
-                   <a href="https://twitter.com" target="_blank" rel="noreferrer" className="social-icon-btn"><Twitter size={24} /></a>
-                   <a href="#" className="social-icon-btn"><Globe size={24} /></a>
-                   <a href="#" className="social-icon-btn" title="Unity / Gamedev"><Boxes size={24} /></a>
-                   <a href="#" className="social-icon-btn" title="Discord"><MessageSquare size={24} /></a>
+                  <a href={globalData.person.social.github} target="_blank" rel="noreferrer" className="social-icon-btn"><Github size={24} /></a>
+                  <a href={globalData.person.social.linkedin} target="_blank" rel="noreferrer" className="social-icon-btn"><Linkedin size={24} /></a>
+                  <a href={globalData.person.social.twitter} target="_blank" rel="noreferrer" className="social-icon-btn"><Twitter size={24} /></a>
+                  <a href={globalData.person.social.website} target="_blank" rel="noreferrer" className="social-icon-btn"><Globe size={24} /></a>
+                  <a href={globalData.person.social.discord} className="social-icon-btn" title="Discord"><BotMessageSquare size={24} /></a>
+                  <a href={globalData.person.social.unity} target="_blank" rel="noreferrer" className="social-icon-btn" title="Unity / Gamedev"><Boxes size={24} /></a>
                 </div>
               </div>
             </div>
             
             <div className="hero-right">
-              <Hero3DModel type={profile.id} />
+              {render3D && <Hero3DModel type={profile.id} />}
             </div>
           </div>
         </motion.header>

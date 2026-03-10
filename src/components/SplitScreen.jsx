@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './SplitScreen.css';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter, Globe, Boxes, MessageSquare } from 'lucide-react';
+import { Github, Linkedin, Twitter, Globe, Boxes, MessageSquare, BotMessageSquare } from 'lucide-react';
+
 
 const SplitScreen = ({ data, onSelect }) => {
   const [hoveredSide, setHoveredSide] = useState(null);
@@ -34,10 +35,10 @@ const SplitScreen = ({ data, onSelect }) => {
           <div className="split-socials">
              <a href={data.person.social.github} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()} className="social-icon-btn"><Github size={18} /></a>
              <a href={data.person.social.linkedin} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()} className="social-icon-btn"><Linkedin size={18} /></a>
-             <a href="#" onClick={e => e.stopPropagation()} className="social-icon-btn"><Twitter size={18} /></a>
-             <a href="#" onClick={e => e.stopPropagation()} className="social-icon-btn"><Globe size={18} /></a>
-             <a href="#" onClick={e => e.stopPropagation()} className="social-icon-btn"><MessageSquare size={18} /></a>
-             <a href="#" onClick={e => e.stopPropagation()} className="social-icon-btn"><Boxes size={18} /></a>
+             <a href={data.person.social.twitter} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()} className="social-icon-btn"><Twitter size={18} /></a>
+             <a href={data.person.social.website} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()} className="social-icon-btn"><Globe size={18} /></a>
+             <a href={data.person.social.discord} onClick={e => e.stopPropagation()} className="social-icon-btn"><BotMessageSquare size={18} /></a>
+             <a href={data.person.social.unity} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()} className="social-icon-btn"><Boxes size={18} /></a>
           </div>
         </div>
       </motion.div>

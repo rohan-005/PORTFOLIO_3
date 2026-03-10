@@ -1,7 +1,7 @@
 import React, { useRef, Suspense, useEffect } from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, OrbitControls, Environment, ContactShadows, useGLTF, Center, Bounds } from '@react-three/drei';
+import { OrbitControls, Environment, ContactShadows, useGLTF, Center, Bounds } from '@react-three/drei';
 
 const CustomGLBModel = ({ url }) => {
   const { scene } = useGLTF(url);
@@ -46,11 +46,16 @@ const CustomGLBModel = ({ url }) => {
     return { clonedScene: clone, scale: calculatedScale };
   }, [scene, url]);
 
-  useFrame((state) => {
-    // Gentle floating rotation
+  useFrame((state, delta) => {
+    // Gentle floating rotation using the safe cumulative delta instead of deprecated clock
     if (groupRef.current) {
-      groupRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.2 + 0.5;
-      groupRef.current.rotation.x = Math.cos(state.clock.elapsedTime * 0.5) * 0.1 + 0.2;
+      // Create a persistent time accumulator attached to the group to replace state.clock
+      groupRef.current.userData.time = (groupRef.current.userData.time || 0) + delta;
+      const t = groupRef.current.userData.time;
+      
+      groupRef.current.rotation.y = Math.sin(t * 0.5) * 0.2 + 0.5;
+      groupRef.current.rotation.x = Math.cos(t * 0.5) * 0.1 + 0.2;
+      groupRef.current.position.y = Math.sin(t) * 0.1; // Floating vertical motion added natively
     }
   });
 
@@ -65,17 +70,15 @@ export const Hero3DModel = ({ type }) => {
   const modelUrl = type === 'game' ? '/game_fixed.glb' : '/full_fixed.glb';
 
   return (
-    <div style={{ width: '100%', height: '500px', cursor: 'grab' }}>
-      <Canvas shadows camera={{ position: [0, 0, 6], fov: 45 }}>
+    <div style={{ width: '100%', height: '500px', position: 'relative', cursor: 'grab' }}>
+      <Canvas shadows={{ type: THREE.PCFShadowMap }} camera={{ position: [0, 0, 6], fov: 45 }}>
         <ambientLight intensity={1.5} />
         <directionalLight castShadow position={[10, 10, 5]} intensity={2} color="#ffffff" shadow-mapSize={[1024, 1024]} shadow-bias={-0.001} />
         <directionalLight position={[-10, -10, -5]} intensity={2} color="#A2CB8B" />
         <Environment preset="city" />
         
         <Suspense fallback={null}>
-          <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-             <CustomGLBModel url={modelUrl} />
-          </Float>
+           <CustomGLBModel url={modelUrl} />
         </Suspense>
         
         <ContactShadows resolution={1024} scale={20} blur={2} opacity={0.6} far={10} color="#000000" position={[0, -2.5, 0]} />
