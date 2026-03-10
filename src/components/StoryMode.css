@@ -210,6 +210,11 @@
   z-index: 5;
   pointer-events: none;
 }
+@media (max-width: 768px) {
+  .experience-path {
+    display: none;
+  }
+}
 
 .speed-line {
   width: 100%;
@@ -249,6 +254,7 @@
 }
 
 /* Experience Section */
+/* Experience Section */
 .experience-list {
   display: flex;
   flex-direction: column;
@@ -257,6 +263,8 @@
   border-left: 2px solid var(--secondary-color);
   position: relative;
 }
+
+
 
 .experience-item {
   position: relative;
@@ -561,6 +569,11 @@
 
   .hero-left {
     align-items: center; /* Center text on mobile */
+    width: 100%;
+  }
+
+  .hero-right {
+    display: none !important; /* Force hide the 3D Component container entirely on mobile */
   }
 
   .hero-name {
@@ -592,6 +605,10 @@
 
   .skills-hud {
     grid-template-columns: 1fr; /* Stack skills on mobile */
+  }
+
+  .hero-bg-accent {
+    display: none; /* Hide background map and 3D models on mobile */
   }
 }
 
