@@ -70,10 +70,10 @@ export const Hero3DModel = ({ type }) => {
   const modelUrl = type === 'game' ? '/game_fixed.glb' : '/full_fixed.glb';
 
   return (
-    <div style={{ width: '100%', height: '500px', position: 'relative', cursor: 'grab' }}>
+    <div style={{ width: '100%', height: '800px', position: 'relative', cursor: 'grab' }}>
       <Canvas shadows={{ type: THREE.PCFShadowMap }} camera={{ position: [0, 0, 6], fov: 45 }}>
-        <ambientLight intensity={1.5} />
-        <directionalLight castShadow position={[10, 10, 5]} intensity={2} color="#ffffff" shadow-mapSize={[1024, 1024]} shadow-bias={-0.001} />
+        <ambientLight intensity={0} />
+        <directionalLight castShadow position={[10, 10, 5]} intensity={0} color="#ffffff" shadow-mapSize={[1024, 1024]} shadow-bias={-0.001} />
         <directionalLight position={[-10, -10, -5]} intensity={2} color="#A2CB8B" />
         <Environment preset="city" />
         
