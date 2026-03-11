@@ -47,12 +47,9 @@ const CustomGLBModel = ({ url }) => {
   }, [scene, url]);
 
   useFrame((state, delta) => {
-    // Gentle floating rotation using the safe cumulative delta instead of deprecated clock
+    // Gentle floating rotation using the safe cumulative getElapsedTime() instead of deprecated THREE.Clock
     if (groupRef.current) {
-      // Create a persistent time accumulator attached to the group to replace state.clock
-      groupRef.current.userData.time = (groupRef.current.userData.time || 0) + delta;
-      const t = groupRef.current.userData.time;
-      
+      const t = state.clock.getElapsedTime();
       groupRef.current.rotation.y = Math.sin(t * 0.5) * 0.2 + 0.5;
       groupRef.current.rotation.x = Math.cos(t * 0.5) * 0.1 + 0.2;
       groupRef.current.position.y = Math.sin(t) * 0.1; // Floating vertical motion added natively

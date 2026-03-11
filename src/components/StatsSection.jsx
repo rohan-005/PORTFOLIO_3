@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Code2, AlertTriangle, MonitorPlay } from 'lucide-react';
+import { motion } from 'framer-motion';
 import './StatsSection.css';
 
 const StatsSection = () => {
@@ -106,7 +107,13 @@ const StatsSection = () => {
       <div className="stats-hud-grid">
 
         {/* ── GITHUB CARD ─────────────────────────────────────────────── */}
-        <a href="https://github.com/rohan-005" target="_blank" rel="noreferrer" className="stat-card github-card">
+        <motion.a 
+          href="https://github.com/rohan-005" target="_blank" rel="noreferrer" className="stat-card github-card"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.5, delay: 0 }}
+        >
           <div className="stat-card-header">
             <Github size={24} className="stat-icon" />
             <h4 className="mono">GITHUB // rohan-005</h4>
@@ -146,10 +153,16 @@ const StatsSection = () => {
               </div>
             )}
           </div>
-        </a>
+        </motion.a>
 
         {/* ── LEETCODE CARD ───────────────────────────────────────────── */}
-        <a href="https://leetcode.com/frosthowl_005/" target="_blank" rel="noreferrer" className="stat-card leetcode-card">
+        <motion.a 
+          href="https://leetcode.com/frosthowl_005/" target="_blank" rel="noreferrer" className="stat-card leetcode-card"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+        >
           <div className="stat-card-header">
             <Code2 size={24} className="stat-icon" />
             <h4 className="mono">LEETCODE // frosthowl_005</h4>
@@ -191,10 +204,16 @@ const StatsSection = () => {
               </div>
             )}
           </div>
-        </a>
+        </motion.a>
 
         {/* ── HACKERRANK CARD ─────────────────────────────────────────── */}
-        <a href="https://www.hackerrank.com/rohandhanerwal" target="_blank" rel="noreferrer" className="stat-card other-card">
+        <motion.a 
+          href="https://www.hackerrank.com/rohandhanerwal" target="_blank" rel="noreferrer" className="stat-card other-card"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
           <div className="stat-card-header">
             <MonitorPlay size={24} className="stat-icon" />
             <h4 className="mono">HACKERRANK // rohandhanerwal</h4>
@@ -218,7 +237,7 @@ const StatsSection = () => {
               </div>
             )}
           </div>
-        </a>
+        </motion.a>
 
       </div>
     </section>

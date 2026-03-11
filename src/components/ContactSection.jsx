@@ -62,7 +62,13 @@ const ContactSection = ({ email }) => {
       <h3 className="mono chapter-title">[ COMM_LINK_ESTABLISHED ]</h3>
       
       <div className="contact-grid">
-        <motion.div className="contact-info" initial={{ x: -30, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true }}>
+        <motion.div 
+          className="contact-info" 
+          initial={{ x: -30, opacity: 0 }} 
+          whileInView={{ x: 0, opacity: 1 }} 
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.5 }}
+        >
           <p className="contact-desc">
             I'm always interested in hearing about new opportunities,
             collaborations, or just having a chat about tech and games.
@@ -76,7 +82,14 @@ const ContactSection = ({ email }) => {
           </div>
         </motion.div>
 
-        <motion.div className="contact-form-wrapper" ref={formRef} initial={{ x: 30, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true }}>
+        <motion.div 
+          className="contact-form-wrapper" 
+          ref={formRef} 
+          initial={{ x: 30, opacity: 0 }} 
+          whileInView={{ x: 0, opacity: 1 }} 
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <form onSubmit={handleSubmit} className="contact-form">
             <div className="form-group">
               <label htmlFor="name" className="mono">NAME</label>

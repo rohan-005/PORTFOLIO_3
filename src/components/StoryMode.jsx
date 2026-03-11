@@ -123,7 +123,7 @@ const StoryMode = ({ profile, globalData, isTransitioning }) => {
 
         {/* The Experience Path: vertical timeline pulsing red */}
         <div className="experience-path">
-          <div className="speed-line" style={{ height: `${Math.min(100, scrollY * 0.1)}%` }}></div>
+          <div className="speed-line" style={{ height: `${Math.min(100, scrollY * 0.021)}%` }}></div>
         </div>
 
         <section className="about-section chapter">
@@ -137,7 +137,14 @@ const StoryMode = ({ profile, globalData, isTransitioning }) => {
             <h3 className="mono chapter-title">[ SYSTEM_LOGS: EXPERIENCE ]</h3>
             <div className="experience-list">
               {profile.experience.map((exp, idx) => (
-                <div key={idx} className="experience-item">
+                <motion.div 
+                  key={idx} 
+                  className="experience-item"
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ duration: 0.5, delay: idx * 0.15 }}
+                >
                   <div className="exp-timeline-dot"></div>
                   <div className="exp-content">
                     <h4 className="exp-role">{exp.role} <span className="exp-company">@ {exp.company}</span></h4>
@@ -146,7 +153,7 @@ const StoryMode = ({ profile, globalData, isTransitioning }) => {
                       {exp.description.map((desc, i) => <li key={i}>{desc}</li>)}
                     </ul>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </section>
@@ -156,12 +163,16 @@ const StoryMode = ({ profile, globalData, isTransitioning }) => {
         <section className="projects-section chapter">
           <h3 className="mono chapter-title sticky-title">[ ENGAGE_PROTOCOLS: WORKS ]</h3>
           <div className="project-collage-grid">
-            {profile.projects.map((proj) => (
-              <div 
+            {profile.projects.map((proj, idx) => (
+              <motion.div 
                 key={proj.id} 
                 className={`project-collage-card ${hoveredProject === proj.id ? 'active' : ''} ${hoveredProject && hoveredProject !== proj.id ? 'dimmed' : ''}`}
                 onMouseEnter={() => setHoveredProject(proj.id)}
                 onMouseLeave={() => setHoveredProject(null)}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.6, delay: idx * 0.15 }}
               >
                 <img src={proj.media.cover} alt={proj.title} className="collage-bg-img" />
                 <div className="collage-content">
@@ -183,7 +194,7 @@ const StoryMode = ({ profile, globalData, isTransitioning }) => {
                     )}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
@@ -196,13 +207,20 @@ const StoryMode = ({ profile, globalData, isTransitioning }) => {
           <div className="skills-hud">
              {/* Flattening skills for HUD display */}
              {Object.entries(profile.skills).flatMap(([category, skills]) => 
-                skills.map(skill => (
-                  <div key={skill} className="hud-cell">
+                skills.map((skill, idx) => (
+                  <motion.div 
+                    key={skill} 
+                    className="hud-cell"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, margin: '-50px' }}
+                    transition={{ duration: 0.4, delay: (idx % 8) * 0.05 }}
+                  >
                     <span className="mono hud-label">{skill}</span>
                     <div className="progress-bar">
                        <div className="progress-fill" style={{ width: `${Math.random() * 40 + 60}%` }}></div>
                     </div>
-                  </div>
+                  </motion.div>
                 ))
              )}
           </div>
