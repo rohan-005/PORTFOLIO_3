@@ -1,16 +1,16 @@
 {
   "person": {
-    "name": "Rohan",
+    "name": "Sanya Jaiswal",
     "tagline": "Building immersive worlds and robust applications",
     "location": "India",
-    "email": "rohandhanerwal@gmail.com",
+    "email": "sanyajaiswal@gmail.com",
     "social": {
-      "github": "https://github.com/rohan-005",
-      "linkedin": "https://www.linkedin.com/in/rohan005/",
-      "twitter": "https://x.com/itsrohan005",
-      "website": "https://workwithrohan.vercel.app/",
+      "github": "https://github.com/Sanya Jaiswal-005",
+      "linkedin": "https://www.linkedin.com/in/Sanya Jaiswal005/",
+      "twitter": "https://x.com/itsSanya Jaiswal005",
+      "website": "https://workwithSanya Jaiswal.vercel.app/",
       "unity": "https://play.unity.com/en/user/37417cba-6186-4c44-a28d-699258161de6",
-      "discord": "https://discord.com/users/_rohan005"
+      "discord": "https://discord.com/users/_Sanya Jaiswal005"
     }
   },
   "theme": {
@@ -239,7 +239,7 @@
             "gallery": []
           },
           "links": {
-            "github": "https://github.com/rohan-005/dsa-forge",
+            "github": "https://github.com/Sanya Jaiswal-005/dsa-forge",
             "live": "www.dsa-forge.com",
             "video": ""
           }
@@ -262,7 +262,7 @@
             "gallery": []
           },
           "links": {
-            "github": "https://github.com/rohan-005/bytecode_mern",
+            "github": "https://github.com/Sanya Jaiswal-005/bytecode_mern",
             "live": "https://bytecode.vercel.app/",
             "video": ""
           }
@@ -285,7 +285,7 @@
             "gallery": []
           },
           "links": {
-            "github": "https://github.com/rohan-005/algoNERD",
+            "github": "https://github.com/Sanya Jaiswal-005/algoNERD",
             "live": "https://algo-nerd.vercel.app/",
             "video": ""
           }
@@ -306,7 +306,7 @@
             "gallery": []
           },
           "links": {
-            "github": "https://github.com/rohan-005/the_timber_curse",
+            "github": "https://github.com/Sanya Jaiswal-005/the_timber_curse",
             "live": "https://the-timber-curse.vercel.app/",
             "video": ""
           }
@@ -329,7 +329,7 @@
             "gallery": []
           },
           "links": {
-            "github": "https://github.com/rohan-005/renzaar",
+            "github": "https://github.com/Sanya Jaiswal-005/renzaar",
             "live": "https://renzaar.vercel.app/",
             "video": ""
           }
@@ -352,7 +352,7 @@
             "gallery": []
           },
           "links": {
-            "github": "https://github.com/rohan-005/stikbit",
+            "github": "https://github.com/Sanya Jaiswal-005/stikbit",
             "live": "stikbit.vercel.app",
             "video": ""
           }
@@ -372,7 +372,7 @@
             "gallery": []
           },
           "links": {
-            "github": "https://github.com/rohan-005/hiestsprintweb",
+            "github": "https://github.com/Sanya Jaiswal-005/hiestsprintweb",
             "live": "stsprintweb.vercel.app",
             "video": ""
           }
@@ -395,8 +395,8 @@
             "gallery": []
           },
           "links": {
-            "github": "https://github.com/rohan-005/bid_for_it",
-            "live": "https://github.com/rohan-005/bid_for_it",
+            "github": "https://github.com/Sanya Jaiswal-005/bid_for_it",
+            "live": "https://github.com/Sanya Jaiswal-005/bid_for_it",
             "video": ""
           }
         }
@@ -425,7 +425,7 @@
           "Netlify"
         ]
       },
-      "cvFile": "/cv/rohan.pdf"
+      "cvFile": "/cv/Sanya Jaiswal.pdf"
     }
   }
 }

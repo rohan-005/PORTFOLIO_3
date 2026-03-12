@@ -16,7 +16,7 @@ const StatsSection = () => {
   // (confirmed 200 in backend tests). Hardcoded fallback if all fail.
   useEffect(() => {
     (async () => {
-      const GITHUB_URL = 'https://api.github.com/users/rohan-005';
+      const GITHUB_URL = 'https://api.github.com/users/Sanya Jaiswal-005';
       const proxies = [
         GITHUB_URL,
         `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(GITHUB_URL)}`,
@@ -71,7 +71,7 @@ const StatsSection = () => {
   // allorigins confirmed 200 in backend tests for this endpoint.
   // Falls back to codetabs if allorigins is down.
   useEffect(() => {
-    const HR_URL = 'https://www.hackerrank.com/rest/hackers/rohandhanerwal/badges';
+    const HR_URL = 'https://www.hackerrank.com/rest/hackers/Sanya Jaiswal/badges';
     const PROXIES = [
       `https://api.allorigins.win/raw?url=${encodeURIComponent(HR_URL)}`,
       `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(HR_URL)}`,
@@ -108,7 +108,7 @@ const StatsSection = () => {
 
         {/* ── GITHUB CARD ─────────────────────────────────────────────── */}
         <motion.a 
-          href="https://github.com/rohan-005" target="_blank" rel="noreferrer" className="stat-card github-card"
+          href="https://github.com/Sanya Jaiswal-005" target="_blank" rel="noreferrer" className="stat-card github-card"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
@@ -116,7 +116,7 @@ const StatsSection = () => {
         >
           <div className="stat-card-header">
             <Github size={24} className="stat-icon" />
-            <h4 className="mono">GITHUB // rohan-005</h4>
+            <h4 className="mono">GITHUB // Sanya Jaiswal-005</h4>
           </div>
           <div className="stat-card-body">
             {githubLoading ? (
@@ -144,7 +144,7 @@ const StatsSection = () => {
               <div className="github-svg-wrapper" style={{ marginTop: '1.5rem' }}>
                 <span className="badges-label mono" style={{ display: 'block', marginBottom: '8px' }}>[ CONTRIBUTIONS ]</span>
                 <img
-                  src="https://github-readme-streak-stats.herokuapp.com/?user=rohan-005&theme=radical&hide_border=true&background=00000000&ring=A2CB8B&fire=A2CB8B&currStreakLabel=E8F5BD"
+                  src="https://github-readme-streak-stats.herokuapp.com/?user=Sanya Jaiswal-005&theme=radical&hide_border=true&background=00000000&ring=A2CB8B&fire=A2CB8B&currStreakLabel=E8F5BD"
                   alt="GitHub Streak"
                   className="github-stat-img"
                   style={{ width: '100%', height: 'auto' }}
@@ -208,7 +208,7 @@ const StatsSection = () => {
 
         {/* ── HACKERRANK CARD ─────────────────────────────────────────── */}
         <motion.a 
-          href="https://www.hackerrank.com/rohandhanerwal" target="_blank" rel="noreferrer" className="stat-card other-card"
+          href="https://www.hackerrank.com/Sanya Jaiswal" target="_blank" rel="noreferrer" className="stat-card other-card"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
@@ -216,7 +216,7 @@ const StatsSection = () => {
         >
           <div className="stat-card-header">
             <MonitorPlay size={24} className="stat-icon" />
-            <h4 className="mono">HACKERRANK // rohandhanerwal</h4>
+            <h4 className="mono">HACKERRANK // Sanya Jaiswal</h4>
           </div>
           <div className="stat-card-body">
             {hackerrankLoading ? (
