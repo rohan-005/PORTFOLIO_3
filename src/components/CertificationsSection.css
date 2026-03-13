@@ -1,0 +1,216 @@
+/* ═══════════════════════════════════════════════
+   CERTIFICATIONS SECTION
+   ═══════════════════════════════════════════════ */
+
+.certs-section {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 4rem;
+}
+
+/* 4-column collage grid matching the project masonry aesthetic */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* ── Card ───────────────────────────────────────── */
+.cert-card {
+  background: var(--hud-bg);
+  border: 1px solid rgba(132, 177, 121, 0.15);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+:root.light-mode .cert-card {
+  border: 1px solid rgba(230, 0, 0, 0.15);
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-color);
+  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.55),
+              0 0 20px rgba(162, 203, 139, 0.08);
+}
+
+/* Corner bracket accents (matches .hud-cell style) */
+.cert-corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  z-index: 2;
+  pointer-events: none;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+  opacity: 0.55;
+}
+.cert-card:hover .cert-corner { opacity: 1; width: 12px; height: 12px; }
+
+.cert-corner--tl {
+  top: 6px; left: 6px;
+  border-top: 1px solid var(--accent-color);
+  border-left: 1px solid var(--accent-color);
+}
+.cert-corner--br {
+  bottom: 6px; right: 6px;
+  border-bottom: 1px solid var(--accent-color);
+  border-right: 1px solid var(--accent-color);
+}
+
+/* ── Header strip ───────────────────────────────── */
+.cert-header {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.9rem 1.2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  border-bottom: 1px solid rgba(132, 177, 121, 0.1);
+}
+
+:root.light-mode .cert-header {
+  background: rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(230, 0, 0, 0.1);
+}
+
+.cert-icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cert-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.cert-issuer {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: var(--accent-color);
+  text-transform: uppercase;
+}
+
+.cert-issued {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.cert-expiry {
+  color: rgba(162, 203, 139, 0.5);
+  font-size: 0.6rem;
+  display: none;
+}
+
+.cert-link-icon {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  margin-top: 3px;
+  opacity: 0.4;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+.cert-card:hover .cert-link-icon {
+  color: var(--accent-color);
+  opacity: 1;
+}
+
+/* ── Body ───────────────────────────────────────── */
+.cert-body {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  flex: 1;
+}
+
+.cert-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+
+.cert-id {
+  margin: 0;
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Skill tags (matches tech-tag look) ─────────── */
+.cert-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.cert-skill-tag {
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  padding: 3px 8px;
+  border: 1px solid rgba(132, 177, 121, 0.25);
+  border-radius: 2px;
+  color: var(--accent-color);
+  background: rgba(162, 203, 139, 0.06);
+  text-transform: uppercase;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.cert-card:hover .cert-skill-tag {
+  background: rgba(162, 203, 139, 0.12);
+  border-color: rgba(132, 177, 121, 0.5);
+}
+
+:root.light-mode .cert-skill-tag {
+  border-color: rgba(230, 0, 0, 0.2);
+  color: var(--accent-color);
+  background: rgba(230, 0, 0, 0.04);
+}
+
+/* ── Animated bottom bar on hover ───────────────── */
+.cert-active-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+  transition: width 0.4s ease;
+}
+
+.cert-card:hover .cert-active-bar {
+  width: 100%;
+}
+
+/* ── Mobile responsive ──────────────────────────── */
+@media (max-width: 768px) {
+  .certs-grid {
+    grid-template-columns: 1fr;
+  }
+}

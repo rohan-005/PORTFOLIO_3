@@ -7,6 +7,7 @@ import StatsSection from './StatsSection';
 import { Github, Linkedin, Twitter, Globe, Boxes, MessageSquare, Database, Cpu, Code2, Gamepad2,BotMessageSquare } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Hero3DModel } from './Hero3DModels';
+import CertificationsSection from './CertificationsSection';
 
 const StoryMode = ({ profile, globalData, isTransitioning }) => {
   const [scrollY, setScrollY] = useState(0);
@@ -201,6 +202,9 @@ const StoryMode = ({ profile, globalData, isTransitioning }) => {
 
         {/* V14 Live Developer Stats */}
         <StatsSection />
+
+        {/* V20 Certifications Vault */}
+        <CertificationsSection />
 
         <section className="skills-section chapter">
           <h3 className="mono chapter-title">[ SYSTEM_HUD: TECHNICAL ROSTER ]</h3>

@@ -21,12 +21,12 @@
 
 :root.light-mode {
   /* LIGHT MODE (V12 Dirty White & Red) */
-  --bg-color: #7c7c78; /* Dirty white / paper tone */
+  --bg-color: #78787c; /* Dirty white / paper tone */
   --accent-color: #910808; /* Racing Red */
   --text-primary: #ffffff; /* Near black for stark contrast */
   --text-secondary: #000000; /* Dark gray */
   --secondary-color: #d1d1cc; /* Darker dirty white for borders */
-  --hud-bg: rgba(244, 244, 240, 0.85);
+  --hud-bg: rgba(161, 152, 152, 0.85);
   --hud-cell-bg: rgba(230, 0, 0, 0.05); /* Tint of red */
   --panel-gradient-start: #eaeaea;
   --glitch-text-gradient: linear-gradient(135deg, #111111, #E60000);

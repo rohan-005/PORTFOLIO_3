@@ -20,7 +20,7 @@ async function run() {
 
   console.log("Testing GitHub readme stats SVG...");
   try {
-    const gh = await fetch('https://github-readme-stats.vercel.app/api?username=Sanya Jaiswal-005');
+    const gh = await fetch('https://github-readme-stats.vercel.app/api?username=rohan-005');
     console.log("GitHub SVG Status:", gh.status);
   } catch (e) {
     console.error("GitHub SVG failed", e.message);
@@ -28,7 +28,7 @@ async function run() {
 
   console.log("Testing HackerRank through allorigins...");
   try {
-    const hr = await fetch('https://api.allorigins.win/raw?url=https://www.hackerrank.com/rest/hackers/Sanya Jaiswal/badges');
+    const hr = await fetch('https://api.allorigins.win/raw?url=https://www.hackerrank.com/rest/hackers/rohandhanerwal/badges');
     console.log("HackerRank AllOrigins Status:", hr.status);
   } catch (e) {
     console.error("HackerRank AllOrigins failed", e.message);
@@ -36,7 +36,7 @@ async function run() {
 
   console.log("Testing HackerRank through corsproxy.io...");
   try {
-    const hr2 = await fetch('https://corsproxy.io/?https://www.hackerrank.com/rest/hackers/Sanya Jaiswal/badges');
+    const hr2 = await fetch('https://corsproxy.io/?https://www.hackerrank.com/rest/hackers/rohandhanerwal/badges');
     console.log("HackerRank CorsProxy Status:", hr2.status);
   } catch (e) {
     console.error("HackerRank CorsProxy failed", e.message);
@@ -44,7 +44,7 @@ async function run() {
 
   console.log("Testing HackerRank through codetabs...");
   try {
-    const hr3 = await fetch('https://api.codetabs.com/v1/proxy?quest=https://www.hackerrank.com/rest/hackers/Sanya Jaiswal/badges');
+    const hr3 = await fetch('https://api.codetabs.com/v1/proxy?quest=https://www.hackerrank.com/rest/hackers/rohandhanerwal/badges');
     console.log("HackerRank Codetabs Status:", hr3.status);
   } catch (e) {
     console.error("HackerRank Codetabs failed", e.message);
