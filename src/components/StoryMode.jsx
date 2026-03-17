@@ -88,6 +88,7 @@ const StoryMode = ({ profile, globalData, isTransitioning }) => {
             </motion.div>
           </div>
 
+
           <div className="hero-content">
             <div className="hero-left">
               <h1 className="hero-name glitch" data-text={globalData.person.name}>
@@ -128,7 +129,23 @@ const StoryMode = ({ profile, globalData, isTransitioning }) => {
         </div>
 
         <section className="about-section chapter">
-          <h3 className="mono chapter-title">[ INIT_SEQUENCE: ABOUT ]</h3>
+          {/* Small chapter label */}
+          <p className="about-label mono">[ INIT_SEQUENCE: ABOUT ]</p>
+          {/* Sub-intro line */}
+          <p className="about-intro-line mono">
+            I am a &nbsp;<span className="about-role-inline">
+              {/* {profile.id === 'game' ? 'Game Developer' : 'Full Stack Developer'} */}
+            </span>
+          </p>
+
+          {/* Two-tone title block — matches the reference */}
+          <div className="about-display-title" aria-hidden="true">
+            <span className="about-big-word">
+              {profile.id === 'game' ? 'Game' : 'Full Stack'}
+            </span>
+            <span className="about-script-word" style={{ marginLeft: '50%' }}>developer.</span>
+          </div>
+
           <p className="about-text">{profile.about}</p>
         </section>
 

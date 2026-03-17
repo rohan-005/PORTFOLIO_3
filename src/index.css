@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Teko:wght@500;700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@700&family=Oswald:wght@400;500;700&family=Teko:wght@500;700&family=Space+Mono:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'Rockybilly';
+  src: url('/Rockybilly.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
   /* DARK MODE (V8 Green Overhaul) */
@@ -16,6 +23,7 @@
   
   --font-sans: 'Oswald', sans-serif;
   --font-heading: 'Teko', sans-serif;
+  --font-heading-2: 'Rockybilly', 'Teko', sans-serif;
   --font-mono: 'Space Mono', monospace;
 }
 
@@ -65,7 +73,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 00;
   text-transform: uppercase;
   margin-bottom: 0.5em;
   line-height: 1;
