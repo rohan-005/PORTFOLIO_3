@@ -28,17 +28,18 @@
 }
 
 :root.light-mode {
-  /* LIGHT MODE (V12 Dirty White & Red) */
-  --bg-color: #78787c; /* Dirty white / paper tone */
-  --accent-color: #910808; /* Racing Red */
-  --text-primary: #ffffff; /* Near black for stark contrast */
-  --text-secondary: #000000; /* Dark gray */
-  --secondary-color: #d1d1cc; /* Darker dirty white for borders */
-  --hud-bg: rgba(161, 152, 152, 0.85);
-  --hud-cell-bg: rgba(230, 0, 0, 0.05); /* Tint of red */
-  --panel-gradient-start: #eaeaea;
-  --glitch-text-gradient: linear-gradient(135deg, #111111, #E60000);
-  --parallax-gradient: radial-gradient(ellipse at top center, #e8e8e3, var(--bg-color) 70%);
+  /* LIGHT MODE — Deep Navy Blue Palette */
+  --bg-color: #31333e;                         /* Deep navy base */
+  --accent-color: #0066ff;                     /* Royal blue primary accent */
+  --accent-light: #184a6b;                     /* Sky blue highlight */
+  --text-primary: #DFF6FF;                     /* Near-white ice blue for headings */
+  --text-secondary: #fdfeff;                   /* Sky blue for body copy */
+  --secondary-color: #0d3a58;                  /* Slightly lighter navy for borders / panels */
+  --hud-bg: rgba(6, 40, 61, 0.92);            /* Navy-tinted card background */
+  --hud-cell-bg: rgba(19, 99, 223, 0.08);     /* Subtle blue tint */
+  --panel-gradient-start: #0d3a58;
+  --glitch-text-gradient: linear-gradient(135deg, #DFF6FF, #47B5FF);
+  --parallax-gradient: radial-gradient(ellipse at top center, #0d3a58, var(--bg-color) 70%);
 }
 
 * {
@@ -63,6 +64,17 @@ body {
       transparent 12px
     );
   background-attachment: fixed;
+}
+
+:root.light-mode body {
+  background-image:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(71, 181, 255, 0.07),
+      rgba(71, 181, 255, 0.07) 2px,
+      transparent 2px,
+      transparent 14px
+    );
   color: var(--text-primary);
   font-family: var(--font-sans);
   overflow-x: hidden;

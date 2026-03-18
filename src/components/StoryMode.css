@@ -202,7 +202,7 @@
 }
 
 .hero-name {
-  font-size: 6rem; /* Scaled down slightly for 2-col layout */
+  font-size: 8rem; /* Scaled up for bigger impact */
   line-height: 0.9;
   letter-spacing: -3px;
   margin-bottom: 2rem;
@@ -267,14 +267,14 @@
 }
 
 .hero-title {
-  font-size: 2rem;
+  font-size: 2.6rem;
   color: var(--accent-color);
   letter-spacing: 2px;
 }
 
 .hero-desc {
   margin-top: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: var(--text-secondary);
 }
 
@@ -314,7 +314,7 @@
 }
 
 .chapter-title {
-  font-size: 1rem;
+  font-size: 1.15rem;
   color: var(--accent-color);
   letter-spacing: 4px;
   margin-bottom: 3rem;
@@ -331,7 +331,7 @@
 }
 
 .about-text {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   line-height: 1.6;
   max-width: 800px;
   color: var(--text-secondary);
