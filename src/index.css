@@ -83,6 +83,20 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+/* ── Full-page background watermark (bg.png) ─────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url('/bg.png');
+  background-repeat: no-repeat;
+  background-size: fill;
+  background-position: center -200px;
+  opacity: 0.04;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 00;
