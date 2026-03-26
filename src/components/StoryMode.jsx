@@ -8,6 +8,7 @@ import { Github, Linkedin, Twitter, Globe, Boxes, MessageSquare, Database, Cpu, 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Hero3DModel } from './Hero3DModels';
 import CertificationsSection from './CertificationsSection';
+import EducationSection from './EducationSection';
 
 const StoryMode = ({ profile, globalData, isTransitioning }) => {
   const [scrollY, setScrollY] = useState(0);
@@ -216,6 +217,9 @@ const StoryMode = ({ profile, globalData, isTransitioning }) => {
             ))}
           </div>
         </section>
+
+        {/* V20 Education Timeline */}
+        <EducationSection />
 
         {/* V14 Live Developer Stats */}
         <StatsSection />
