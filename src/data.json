@@ -223,6 +223,30 @@
       ],
       "projects": [
         {
+  "id": "lvl_0",
+  "title": "lvl_0 | The Operating System for Gamers",
+  "shortDescription": "Genre-based gaming hub with real-time chat and analytics",
+  "longDescription": "A full-stack gaming platform built on the MERN stack that organizes games by genre and provides real-time community interaction. Features include genre-based exploration, live chat rooms using WebSockets, game statistics tracking, news aggregation, and a scalable architecture designed for future in-house game integration. The platform emphasizes clean discussions, modular design, and data-driven insights for gamers and developers.",
+  "tech": [
+    "React",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Tailwind",
+    "Socket.IO",
+    "JWT"
+  ],
+  "media": {
+    "cover": "/assets/web/lvl_0.png",
+    "gallery": []
+  },
+  "links": {
+    "github": "https://github.com/rohan-005/lvl0",
+    "live": "https://lvl-0.vercel.app/",
+    "video": ""
+  }
+},
+        {
           "id": "dsaforge",
           "title": "DSA Forge",
           "shortDescription": "Structured algorithm and problem-solving platform",
