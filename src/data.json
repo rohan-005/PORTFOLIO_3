@@ -224,7 +224,7 @@
       "projects": [
         {
   "id": "lvl_0",
-  "title": "lvl_0 | The Operating System for Gamers",
+  "title": "lvl_0 | The OS for Gamers",
   "shortDescription": "Genre-based gaming hub with real-time chat and analytics",
   "longDescription": "A full-stack gaming platform built on the MERN stack that organizes games by genre and provides real-time community interaction. Features include genre-based exploration, live chat rooms using WebSockets, game statistics tracking, news aggregation, and a scalable architecture designed for future in-house game integration. The platform emphasizes clean discussions, modular design, and data-driven insights for gamers and developers.",
   "tech": [
