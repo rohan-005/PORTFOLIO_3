@@ -201,26 +201,6 @@
         ]
       },
       "about": "I'm a Computer Science student passionate about building scalable and production-ready web applications. I specialize in modern JavaScript ecosystems including MERN and Next.js. From interactive learning platforms to e-commerce systems and creator marketplaces, I focus on clean architecture, optimized backend logic, and seamless user experience.",
-      "experience": [
-        {
-          "company": "DSA Forge",
-          "role": "Full-Stack Developer",
-          "period": "Jan 2026 – Present",
-          "description": [
-            "Designed and developed DSA Forge, a structured problem-solving and algorithm practice platform.",
-            "Implemented custom evaluation workflows and submission handling systems for programming problems.",
-            "Designed scalable database models for problem categorization, topic-wise mapping, and difficulty indexing.",
-            "Collaborated on frontend architecture enabling dynamic problem rendering and interactive practice sessions."
-          ],
-          "tech": [
-            "React",
-            "Node.js",
-            "Express",
-            "MongoDB",
-            "Tailwind"
-          ]
-        }
-      ],
       "projects": [
         {
   "id": "lvl_0",
