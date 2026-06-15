@@ -63,12 +63,16 @@ const CustomGLBModel = ({ url }) => {
   );
 };
 
-export const Hero3DModel = ({ type }) => {
+export const Hero3DModel = ({ type, isInView }) => {
   const modelUrl = type === 'game' ? '/game_fixed.glb' : '/full_fixed.glb';
 
   return (
     <div style={{ width: '100%', height: '800px', position: 'relative', cursor: 'grab' }}>
-      <Canvas shadows={{ type: THREE.PCFShadowMap }} camera={{ position: [0, 0, 6], fov: 45 }}>
+      <Canvas 
+        shadows={{ type: THREE.PCFShadowMap }} 
+        camera={{ position: [0, 0, 6], fov: 45 }}
+        frameloop={isInView ? 'always' : 'never'}
+      >
         <ambientLight intensity={0} />
         <directionalLight castShadow position={[10, 10, 5]} intensity={0} color="#ffffff" shadow-mapSize={[1024, 1024]} shadow-bias={-0.001} />
         <directionalLight position={[-10, -10, -5]} intensity={2} color="#A2CB8B" />

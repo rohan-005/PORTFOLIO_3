@@ -5,14 +5,14 @@ import ContactSection from './ContactSection';
 import Footer from './Footer';
 import StatsSection from './StatsSection';
 import { Github, Linkedin, Twitter, Globe, Boxes, MessageSquare, Database, Cpu, Code2, Gamepad2,BotMessageSquare } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { Hero3DModel } from './Hero3DModels';
 import CertificationsSection from './CertificationsSection';
 import EducationSection from './EducationSection';
 
 const StoryMode = ({ profile, globalData, isTransitioning }) => {
-  const [scrollY, setScrollY] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const spotlightRef = useRef(null);
+  const heroRef = useRef(null);
   const [hoveredProject, setHoveredProject] = useState(null);
   
   // Guard the massive WebGL payload. Render fallback to maintain layout bounds.
@@ -20,57 +20,70 @@ const StoryMode = ({ profile, globalData, isTransitioning }) => {
   // frames as the intense 1.2s CSS transition rip phase.
   const [render3D, setRender3D] = useState(false);
 
+  // Intersection observer for pausing WebGL off-screen
+  const isHeroInView = useInView(heroRef, { margin: "0px 0px -200px 0px" });
+
+  // Scroll tracking with Framer Motion values to avoid React re-renders
+  const { scrollY } = useScroll();
+  const fastY = useTransform(scrollY, y => y * -0.2);
+  const slowY = useTransform(scrollY, y => y * -0.05);
+  const gridTransform = useTransform(scrollY, y => `perspective(500px) rotateX(60deg) translateY(${-100 + y * 0.1}px) scale(2)`);
+  const headerScale = useTransform(scrollY, y => 1 - y * 0.0005);
+  const headerOpacity = useTransform(scrollY, y => 1 - y * 0.001);
+  const speedLineScaleY = useTransform(scrollY, y => Math.min(1, y * 0.00021));
+
   useEffect(() => {
     if (!isTransitioning) {
       setRender3D(true);
     }
   }, [isTransitioning]);
 
+  // Ref-based mousemove tracking to update spotlight directly without re-rendering
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
+    const handleMouseMove = (e) => {
+      if (spotlightRef.current) {
+        spotlightRef.current.style.background = `radial-gradient(1000px circle at ${e.clientX}px ${e.clientY}px, rgba(132, 177, 121, 0.08), transparent 40%)`;
+      }
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const handleMouseMove = (e) => {
-    setMousePosition({ x: e.clientX, y: e.clientY });
-  };
-
   return (
-    <div 
-      className={`story-mode story-mode-${profile.id}`}
-      onMouseMove={handleMouseMove}
-    >
+    <div className={`story-mode story-mode-${profile.id}`}>
       {/* V11 Interactive Spotlight */}
       <div 
+        ref={spotlightRef}
         className="interactive-spotlight"
         style={{
-          background: `radial-gradient(1000px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(132, 177, 121, 0.08), transparent 40%)`
+          background: `radial-gradient(1000px circle at 0px 0px, rgba(132, 177, 121, 0.08), transparent 40%)`
         }}
       ></div>
 
       {/* 4. Parallax Background with geometric particles (V2 addition) */}
       <div className="parallax-bg">
-        <div 
+        <motion.div 
            className="parallax-layer fast-particle" 
-           style={{ transform: `translateY(${scrollY * -0.2}px)` }}
-        ></div>
-        <div 
+           style={{ y: fastY }}
+        ></motion.div>
+        <motion.div 
            className="parallax-layer slow-particle" 
-           style={{ transform: `translateY(${scrollY * -0.05}px)` }}
-        ></div>
-        <div className="grid-lines" style={{ transform: `perspective(500px) rotateX(60deg) translateY(${-100 + scrollY * 0.1}px) scale(2)` }}></div>
+           style={{ y: slowY }}
+        ></motion.div>
+        <motion.div 
+          className="grid-lines" 
+          style={{ transform: gridTransform }}
+        ></motion.div>
       </div>
 
       <div className="content-wrapper">
         {/* Dynamic Zoom based on Scroll Y */}
         <motion.header 
+          ref={heroRef}
           className="hero-section"
           style={{
-            scale: 1 - scrollY * 0.0005,
-            opacity: 1 - scrollY * 0.001
+            scale: headerScale,
+            opacity: headerOpacity
           }}
         >
           {/* V13 Tech Doodles */}
@@ -119,14 +132,14 @@ const StoryMode = ({ profile, globalData, isTransitioning }) => {
             </div>
             
             <div className="hero-right">
-              {render3D && <Hero3DModel type={profile.id} />}
+              {render3D && <Hero3DModel type={profile.id} isInView={isHeroInView} />}
             </div>
           </div>
         </motion.header>
 
         {/* The Experience Path: vertical timeline pulsing red */}
         <div className="experience-path">
-          <div className="speed-line" style={{ height: `${Math.min(100, scrollY * 0.021)}%` }}></div>
+          <motion.div className="speed-line" style={{ scaleY: speedLineScaleY, transformOrigin: 'top' }}></motion.div>
         </div>
 
         <section className="about-section chapter">
